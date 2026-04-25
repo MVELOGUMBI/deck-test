@@ -1,0 +1,140 @@
+---
+const projects = [
+  {
+    title: "Modern Composite Deck - Naperville",
+    type: "Composite Deck",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCxf37gEMQkFL9GJhMB3PH_u2z19CKqkvcYL3FYRK1jyGuEc56jEGiFjaMid2rouO_--cNascc2__nN3-ZYsGuSXQ7UE3eOP1IwfqEqNOJyg-A9IlfyZvLmgODkr1SxS_UCPmegH32AZfGNqP16voQMWThYP8tEQBCEn9Oxq4HGz9f7U-BAgPZOEPa9UdbhSFgyAnFrS7k_sOBON1pXjuLVNsvaqQ7mOM7w11dNNwp5EZ_U-zgz8kabSxh5eQeE58GTWMgpHkchUSyj"
+  },
+  {
+    title: "Cedar Oasis - Oak Brook",
+    type: "Cedar Deck",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBfPFt9d2blFgjRG3A764AHjfssztkTSH-cENGSHw1sdrwRETczgVsAWnYchjqZmVarP_Qi4duBDDxokPqrOVfzK8tGjXsky3-cNvD7AphMot6jR_lB9iw_0dHBM0fgRquK7hIdS8nThH1LcT5Rr_HgOlX-YDQ-T94lbV33jMgPw5XSJA3tOtNXGt4UmabBQ9wUoG11Zc2T0951A3qP_qSQyB61CWkoeme-MVSbkQa6nhP-Z7eyw9y4JT4AryWz4P2jemBVTA5bvmB-"
+  },
+  {
+    title: "Ipe Pool Deck - Hinsdale",
+    type: "Ipe Wood",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCNxOQUZuwAh3nFjSgsVHNPTK4w6LWYYHJG_0F3KSEKOGKFVFYByNkiH1IoR8EPlPE4EwhzWFmtl0K1Epnfj_l6FKYclvC2e9NztFAcrKpLy2JaeQ-7TnGwo_NgLnInSYmXFDIshIiqyMVa_-fFlAdqSE5E6Z5PYNjbnaNXASY4GBVzYcUKdpL0YOBZqnBbLKeG53DJf2Fy2WNh1QqTWyaDHV7CY63c-Ot1zoAHH9eYLX8FiQXIBN6IKuzVHUdWMysjflFFTEzDL7dF"
+  }
+];
+---
+
+<section class="bento-grid">
+  <article class="feature">
+    <img src={projects[0].image} alt={projects[0].title} />
+    <div class="overlay">
+      <span>{projects[0].type}</span>
+      <h3>{projects[0].title}</h3>
+    </div>
+  </article>
+
+  <div class="process">
+    <span>Method</span>
+    <h2>Our Process</h2>
+    <p>We review structure, materials, drainage, access, and finish details before the build starts.</p>
+  </div>
+
+  {projects.slice(1).map((project) => (
+    <article class="card">
+      <img src={project.image} alt={project.title} />
+      <div class="overlay">
+        <span>{project.type}</span>
+        <h3>{project.title}</h3>
+      </div>
+    </article>
+  ))}
+</section>
+
+<style>
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.feature,
+.process,
+.card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.feature {
+  grid-column: span 8;
+  min-height: 440px;
+}
+
+.process {
+  grid-column: span 4;
+  background: var(--primary);
+  color: white;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.process span,
+.overlay span {
+  color: #ffb690;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.process h2 {
+  color: white;
+  margin: 12px 0;
+}
+
+.process p {
+  color: rgba(255,255,255,0.78);
+}
+
+.card {
+  grid-column: span 6;
+  min-height: 300px;
+}
+
+.feature img,
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 600ms ease;
+}
+
+.feature:hover img,
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 24px;
+  color: white;
+  background: linear-gradient(to top, rgba(0,0,0,0.84), transparent);
+}
+
+.overlay h3 {
+  margin: 8px 0 0;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature,
+  .process,
+  .card {
+    grid-column: span 1;
+    min-height: 280px;
+  }
+}
+</style>

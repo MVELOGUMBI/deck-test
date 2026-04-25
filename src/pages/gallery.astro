@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import GalleryGrid from "../components/GalleryGrid.astro";
+---
+
+<BaseLayout title="Deck Gallery">
+  <main class="gallery-page">
+    <span class="eyebrow">Portfolio</span>
+    <h1>Expert Deck Construction Gallery</h1>
+    <p>
+      Browse premium composite, cedar, and Ipe deck projects built with clean structure and outdoor living in mind.
+    </p>
+
+    <GalleryGrid />
+  </main>
+</BaseLayout>
+
+<style>
+  .gallery-page {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 80px 24px;
+  }
+
+  .eyebrow {
+    color: #8f4d26;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .gallery-page p {
+    max-width: 680px;
+    font-size: 18px;
+  }
+</style>
